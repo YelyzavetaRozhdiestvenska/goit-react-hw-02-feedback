@@ -5,66 +5,52 @@ export class App extends Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    // total: 0
   }
 
-handleClickGood = () =>{
-  this.setState(prevState=>{
-    return{
-      good: prevState.good+1,
-      // total: prevState.total+1,
-    };
-  });
-};
+  handleState = (chosenState) => {
+    let obj = {}
+    obj[chosenState] = this.state[chosenState] + 1
+    this.setState(obj)
+  }
 
-handleClickNeutral = () =>{
-  this.setState(prevState=>{
-    return{
-      neutral: prevState.neutral+1,
-      // total: prevState.total+1,
-    };
-  });
-};
+  countTotalFeedback = () => {
+    let sum = 0;
+    Object.values(this.state).forEach(value => sum += value);
+    return sum;
+  };
 
-handleClickBad = () =>{
-  this.setState(prevState=>{
-    return{
-      bad: prevState.bad+1,
-      // total: prevState.total+1,
-    };
-  });
-};
+  countPositiveFeedbackPercentage = () => {
+    const goodToAll = (this.state.good / (this.countTotalFeedback()))
+    const percentage = (Math.round(goodToAll * 100));
 
-countTotalFeedback = () => {
-  const {good, neutral, bad} = this.state;
-  return (Math.round(good + neutral + bad));
-};
+    if (isNaN(percentage)) {
+      return 0;
+    }
 
-countPositiveFeedbackPercentage = () => {
-  const {good, neutral, bad} = this.state;
-return  (Math.round((good / (good + neutral + bad)) * 100));
-};
+    return percentage;
 
+  };
 
   render() {
     return (
-<main>
-  <h1>Please leave feedback</h1>
-  <button onClick={this.handleClickGood}>Good</button>
-  <button onClick={this.handleClickNeutral}>Neutral</button>
-  <button onClick={this.handleClickBad}>Bad</button>
-  <div>
-    <h2>Statistics</h2>
-    <p>Good: {this.state.good}</p>
-    <p>Neutral: {this.state.neutral}</p>
-    <p>Bad: {this.state.bad}</p>
-    <p>Total: {this.countTotalFeedback}</p>
-    <p>Positive feedback: {this.countPositiveFeedbackPercentage} %</p>
-    </div>
-</main>
+      <main>
+        <h1>Please leave feedback</h1>
+        <button onClick={() => this.handleState("good")}>Good</button>
+        <button onClick={() => this.handleState("neutral")}>Neutral</button>
+        <button onClick={() => this.handleState("bad")}>Bad</button>
+        <div>
+          <h2>Statistics</h2>
+          <p>Good: {this.state.good}</p>
+          <p>Neutral: {this.state.neutral}</p>
+          <p>Bad: {this.state.bad}</p>
+          <p>Total: {this.countTotalFeedback()}</p>
+          <p>Positive feedback: {this.countPositiveFeedbackPercentage()} %</p>
+          </div>
+      </main>
     );
   };
 };
+
 
 
 
