@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {Statistic} from './statistic/Statistic';
+import {Section} from './sections/Section';
+import {Notification} from './notification/Notification';
+// import {FeedbackOptions} from './buttons/FeedbackOptions'
 
 export class App extends Component {
   state = {
@@ -11,7 +15,7 @@ export class App extends Component {
     let obj = {}
     obj[chosenState] = this.state[chosenState] + 1
     this.setState(obj)
-  }
+  };
 
   countTotalFeedback = () => {
     let sum = 0;
@@ -34,41 +38,27 @@ export class App extends Component {
   render() {
     return (
       <main>
-        <h1>Please leave feedback</h1>
+        <Section title="Please leave feedback">
+        {/* <h1>Please leave feedback</h1> */}
+        {/* <FeedbackOptions onClick={() => this.handleState()}/> */}
         <button onClick={() => this.handleState("good")}>Good</button>
         <button onClick={() => this.handleState("neutral")}>Neutral</button>
         <button onClick={() => this.handleState("bad")}>Bad</button>
-        <div>
-          <h2>Statistics</h2>
-          <p>Good: {this.state.good}</p>
-          <p>Neutral: {this.state.neutral}</p>
-          <p>Bad: {this.state.bad}</p>
-          <p>Total: {this.countTotalFeedback()}</p>
-          <p>Positive feedback: {this.countPositiveFeedbackPercentage()} %</p>
-          </div>
-      </main>
+        </Section>
+        <Section title="Statistics">
+         {/* <h2>Statistics</h2> */}
+         {this.countTotalFeedback() === 0 ? (<Notification message="There is no feedback"/>) : 
+        (<Statistic 
+        good={this.state.good}
+        neutral={this.state.neutral}
+        bad={this.state.bad}
+        total={this.countTotalFeedback()}
+        positivePercentage={this.countPositiveFeedbackPercentage()}
+        />)}
+        </Section>
+       </main>
     );
   };
 };
 
 
-
-
-
-
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };
