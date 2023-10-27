@@ -38,6 +38,10 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+main {
+  border: 1px solid;
+}
 `;
  
 export default GlobalStyle;

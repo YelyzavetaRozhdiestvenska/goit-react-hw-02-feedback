@@ -1,11 +1,9 @@
 
 
-export function FeedbackOptions({handleState}) {
+export default function FeedbackOptions({options, onLeaveFeedback}) {
     return ( 
     <>
-    <button onClick={() => handleState("good")}>Good</button>
-    <button onClick={() => handleState("neutral")}>Neutral</button>
-    <button onClick={() => handleState("bad")}>Bad</button>
+    {options.map(option => <button onClick={() => onLeaveFeedback(option)}>{option}</button>)}
     </>
     )
 }
