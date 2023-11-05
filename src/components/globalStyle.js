@@ -3,14 +3,15 @@ import 'modern-normalize';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    
-  }
+    width: 400px;
+   }
 
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -40,8 +41,38 @@ img {
 }
 
 main {
-  border: 1px solid;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: block;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 360px;
+  height: 400px;
+  margin-bottom: 40px;
+  border: 2px solid #808080;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+  background-color: #FDEAA8;
+}
+
+button {
+  gap: 10px;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  background: #0B63F6;
+  box-shadow: 0 5px 0 #003CC5;
+}
+
+button:hover {
+  background: #003CC5;
+  box-shadow: none;
+  position: relative;
+  top: 5px;
 }
 `;
- 
+
 export default GlobalStyle;

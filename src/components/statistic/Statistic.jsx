@@ -1,5 +1,6 @@
 import React from 'react';
 import { Notification } from 'components/notification/Notification';
+import {P} from './Statistic.style';
 
 export function Statistic ({ feedback }) {
 
@@ -31,10 +32,10 @@ export function Statistic ({ feedback }) {
   
 function FeedbackBlock ({ feedback, total, percentage }) {
       return <>
-        <p>Good: {feedback.good}</p>
-        <p>Neutral: {feedback.neutral}</p>
-        <p>Bad: {feedback.bad}</p>
-        <p>Total: {total} </p>
-        <p>Positive feedback: {percentage}  %</p>
+        <P>Good: {feedback.good}</P>
+        <P>Neutral: {feedback.neutral}</P>
+        <P>Bad: {feedback.bad}</P>
+        <P>Total: {total} </P>
+        <P>Positive feedback: {percentage}  %</P>
       </>
   }
