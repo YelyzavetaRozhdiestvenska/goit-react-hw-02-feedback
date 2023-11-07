@@ -49,7 +49,7 @@ main {
   margin-left: auto;
   margin-right: auto;
   width: 360px;
-  height: 400px;
+  height: 360px;
   margin-bottom: 40px;
   border: 2px solid #808080;
   border-radius: 10px;
