@@ -58,8 +58,8 @@ main {
 }
 
 button {
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
   border: none;
   border-radius: 10px;
   text-decoration: none;
