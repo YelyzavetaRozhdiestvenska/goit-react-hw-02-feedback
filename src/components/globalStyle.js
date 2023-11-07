@@ -58,13 +58,15 @@ main {
 }
 
 button {
-  gap: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
   border: none;
   border-radius: 10px;
   text-decoration: none;
   color: white;
   background: #0B63F6;
   box-shadow: 0 5px 0 #003CC5;
+ 
 }
 
 button:hover {
